@@ -7,12 +7,12 @@ import  rootReducer from './reducers/rootReducer';
 // import style from './styles/main.css';
 
 
-// const store = createStore(rootReducer);
-const store = (window.devToolsExtension
-  ? window.devToolsExtension()(createStore)
-  : createStore)(rootReducer);
+const store = createStore(rootReducer);
+// const store = (window.devToolsExtension
+//   ? window.devToolsExtension()(createStore)
+//   : createStore)(rootReducer);
 
-
+console.log('store state: ', store.getState())
 
 ReactDOM.render(
   <Provider store={store}>

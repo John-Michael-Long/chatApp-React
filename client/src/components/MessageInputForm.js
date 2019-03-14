@@ -1,10 +1,11 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-const MessageInputForm = props => {
-  const { handleSubmit, pristine, submitting } = props
+// const MessageInputForm = props => {
+const MessageInputForm = ({ handleSubmit, onSubmit }) => {
+  // const { handleSubmit, pristine, submitting } = props
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label>Message</label>
         <div>
@@ -23,4 +24,5 @@ const MessageInputForm = props => {
   )
 }
 
-export default reduxForm({form:'message-form'})(MessageInputForm)
+export default MessageInputForm;
+// export default reduxForm({form:'message-form'})(MessageInputForm)

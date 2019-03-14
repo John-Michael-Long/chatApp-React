@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import * as actionTypes from '../actions/actionTypes';
 
-const main = (state = [], action) => {
+const messages = (state = [], action) => {
   switch (action.type) {
     case actionTypes.SEND_MESSAGE:
       return [
@@ -31,7 +31,7 @@ const main = (state = [], action) => {
 // }
 
 const rootReducer = combineReducers({
-  main,
+  messages,
   form: formReducer
 })
 

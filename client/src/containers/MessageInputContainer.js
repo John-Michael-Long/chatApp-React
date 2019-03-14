@@ -1,13 +1,15 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
-import TextInput from '../components/TextInput'
+import MessageInputForm from '../components/MessageInputForm'
+import { sendMessage } from '../actions/actions'
 
-export const MessageInputContainer = props => {
-  const submitForm = vals => {
-    console.log('submit form: ', vals)
+export const MessageInputContainer = ({ dispatch, handleSubmit, reset }) => {
+  const submitForm = value => {
+    dispatch(sendMessage(value.messageInput))
+    reset()
   }
   return (
-    <TextInput
+    <MessageInputForm
       onSubmit={submitForm}
       handleSubmit={handleSubmit}
     />
@@ -15,8 +17,9 @@ export const MessageInputContainer = props => {
 }
 
 
+
 const formConfiguration = {
-  form: 'my-very-own-form'
+  form: 'message-form'
 }
 
 export default reduxForm(formConfiguration)(MessageInputContainer)
